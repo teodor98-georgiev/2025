@@ -1,5 +1,62 @@
 public class Main {
     public static void main(String[] args) {
+        // Project Overview:
+        //Build a simple system to manage a small library’s book inventory, members, and book loans.
+        // It should allow you to add/remove/search books, register members, and loan/return books.
+        //
+        //Key Functional Requirements (Tasks):
+        //Define Core Classes (OOP Focus):
+        //
+        //Book (attributes: ID, title, author, genre, availableCopies, totalCopies)
+        //
+        //Member (attributes: memberID, name, phoneNumber, email)
+        //
+        //Loan (attributes: bookID, memberID, loanDate, returnDate)
+        //
+        //Build a Library Class to Manage Collections:
+        //
+        //Use ArrayList or HashMap to manage:
+        //
+        //All books in the library
+        //
+        //All members
+        //
+        //Active book loans
+        //
+        //Implement Operations (Methods):
+        //
+        //Add new books
+        //
+        //Remove books
+        //
+        //Search for books by title, author, or genre
+        //
+        //Register new members
+        //
+        //Loan a book to a member (if available)
+        //
+        //Return a book
+        //
+        //View all current loans
+        //
+        //Use Java Collections Framework:
+        //
+        //HashMap for storing books with their IDs as keys
+        //
+        //ArrayList for keeping lists of loans or members
+        //
+        //Possibly Set to manage unique genres or member emails
+        //
+        //Basic Input/Output via Console:
+        //
+        //Menu-driven interface (text-based)
+        //
+        //Read user input for actions and show outputs accordingly
+        //
+        //Stretch Goals (Optional, Not Required):
+        //Add due dates and auto-flag overdue loans
+        //
+        //Add book ratings or reviews using a Map<Member, String> inside Book
         Library lib = new Library();
         Book book1 = new Book("B001", "The Hobbit", "J.R.R. Tolkien", "Fantasy", true, 5);
         Book book2 = new Book("B002", "1984", "George Orwell", "Dystopian", true, 3);
@@ -46,6 +103,5 @@ public class Main {
         System.out.println("============");
 
         lib.displayAvailableBooks();
-
     }
 }

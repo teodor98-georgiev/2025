@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.util.*;
+import java.time.LocalTime;
 
 public class Library {
     ArrayList<Book> books;
@@ -15,6 +14,9 @@ public class Library {
     }
 
     public void loanBook(String memberName, Book... book){
+        LocalDate loanD = LocalDate.now();
+        LocalDate toReturn = loanD.plusDays(30);
+
         // iteration over given list
         for (Book b : book){
             // check if book is available
@@ -22,21 +24,27 @@ public class Library {
                 removeBook(b);
                 // searching for same memberId in list of members
                 String name = "";
+                String memberId = "";
                 for (Member m : members){
                     if (m.name.equals(memberName)){
                         name = name + memberName;
+                        memberId = memberId + m.memberId;
                         break;
                     }
                 }
+                Loan loanedBook = new Loan(b.bookId, memberId, loanD, toReturn);
                 // adding with a key-value pair user and borrowed books
                 //loanedBooks.put(name, List.of(book));
-                // done to permise adding more books later
+                // changed beow has been made to permise adding more books later
                 loanedBooks.putIfAbsent(name, new ArrayList<>());
                 loanedBooks.get(name).add(b);
+
             }
             else{
                 System.out.println("sorry, current book is not available");
+                break;
             }
+
         }
 
     }
@@ -62,7 +70,7 @@ public class Library {
 
     public void displayLoanedBooks(){ // displays loaned book by a user and user who borrowed books as well
         for (Map.Entry<String,List<Book>> entry : loanedBooks.entrySet()){
-            System.out.println(entry.getKey() + " borrowed: " + " " + entry.getValue() );
+            System.out.println(entry.getKey() + " borrowed: " + " " + entry.getValue() + " to be returned until: " + Loan.returnDate );
         }
     }
 

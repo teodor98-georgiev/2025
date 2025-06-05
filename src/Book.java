@@ -1,8 +1,8 @@
 public class Book {
     String bookId;
-    String title;
-    String author;
-    String genre;
+     String title;
+     String author;
+     String genre;
     boolean isAvail;
     int totalCopies;
 
