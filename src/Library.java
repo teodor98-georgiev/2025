@@ -77,7 +77,7 @@ public class Library {
     public void displayAvailableBooks(){
         groupByGenre();
         for (Map.Entry<String,List<Book>> entry : booksByGenre.entrySet()){
-            System.out.println(entry.getKey() + entry.getValue());
+            System.out.println(entry.getKey() + ":   " + entry.getValue());
         }
     }
 
